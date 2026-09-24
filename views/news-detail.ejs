@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title><%= post.title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="/">Trang chủ</a>
+        <a href="/news">Tin tức</a>
+        <% if (user) { %>
+            <span>Xin chào, <%= user.username %></span>
+            <a href="/logout">Đăng xuất</a>
+        <% } else { %>
+            <a href="/login">Đăng nhập</a>
+        <% } %>
+    </nav>
+    <h1><%= post.title %></h1>
+    <p><%= post.description %></p>
+</body>
+</html>
