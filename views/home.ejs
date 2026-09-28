@@ -1,27 +1,12 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>Trang chủ</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-    <h1>Mini Website Tin Tức</h1>
-    <nav>
-        <a href="/">Trang chủ</a>
-        <a href="/news">Tin tức</a>
-        <% if (user) { %>
-            <span>Xin chào, <%= user.username %></span>
-            <a href="/logout">Đăng xuất</a>
-        <% } else { %>
-            <a href="/login">Đăng nhập</a>
-        <% } %>
-    </nav>
-    <p>Website sử dụng Express và MySQL.</p>
+<%- include("partials/header", { title: "Trang chủ" }) %>
+<%- include("partials/navbar") %>
 
-    <form method="GET" action="/news/search">
-        <input type="text" name="keyword" placeholder="Nhập từ khóa">
-        <button type="submit">Tìm kiếm</button>
-    </form>
-</body>
-</html>
+<h1>Mini Website Tin Tức</h1>
+<p>Website sử dụng Express, MySQL và mô hình MVC.</p>
+
+<form method="GET" action="/news/search">
+  <input type="text" name="keyword" placeholder="Nhập từ khóa">
+  <button type="submit">Tìm kiếm</button>
+</form>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,27 @@
+<%- include("../partials/header", { title: "Danh sách bài viết" }) %>
+<%- include("../partials/navbar") %>
+
+<h1>Danh sách bài viết</h1>
+
+<% if (user) { %>
+  <a href="/news/add">Thêm bài viết</a>
+<% } %>
+
+<ul>
+  <% posts.forEach(post => { %>
+    <li>
+      <h3>
+        <a href="/news/<%= post.id %>"><%= post.title %></a>
+      </h3>
+      <p><%= post.description %></p>
+      <% if (user) { %>
+        <a href="/news/<%= post.id %>/edit">Sửa</a>
+        <form action="/news/<%= post.id %>/delete" method="POST" style="display:inline;">
+          <button type="submit">Xóa</button>
+        </form>
+      <% } %>
+    </li>
+  <% }) %>
+</ul>
+
+<%- include("../partials/footer") %>
